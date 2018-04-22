@@ -1,0 +1,26 @@
+<card-content-custom [title]="'Filters'">
+<div class="card-text">Filter 1</div>
+<div class="card-text">Filter 2</div>
+<div class="card-text">Filter 3</div>
+<div class="card-text">Filter 4</div>
+</card-content-custom>
+
+<delimiter></delimiter>
+
+<table-custom [table]="myTable" [delegate]="this"></table-custom>
+
+
+<delimiter></delimiter>
+
+<card-content-custom *ngIf="selectedRow" [title]="'Selected row'">
+<div *ngFor="let key of myTable.ids" class="card-text">{{selectedRow[key]}}</div>
+</card-content-custom>
+
+<delimiter></delimiter>
+
+<card-content-custom [title]="'Schedule'"> <schedule></schedule> </card-content-custom>
+
+
+<delimiter></delimiter>
+
+

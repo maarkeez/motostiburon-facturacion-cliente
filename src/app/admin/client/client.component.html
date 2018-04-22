@@ -1,0 +1,74 @@
+<card-content-custom [title]="'Cliente'">
+<style>
+.input-group>.input-group-prepend {
+	flex: 0 0 4%;
+}
+
+.input-group .input-group-text {
+	width: 100%;
+}
+</style>
+
+<div class="input-group col-sm-12 mb-1 p-0">
+	<div class="input-group-prepend">
+		<span class="input-group-text" id="basic-addon1">
+			<i class="fas fa-id-card"></i>
+		</span>
+	</div>
+	<input type="text" class="form-control" name="id" placeholder="CIF" aria-label="CIF" aria-describedby="basic-addon1" [(ngModel)]="selectedRow.id" />
+</div>
+
+<div class="input-group col-sm-12 mb-1 p-0">
+	<div class="input-group-prepend">
+		<span class="input-group-text" id="basic-addon1">
+			<i class="fas fa-user-circle"></i>
+		</span>
+	</div>
+	<input type="text" class="form-control" name="name" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1"
+		[(ngModel)]="selectedRow.name" />
+</div>
+
+<div class="input-group col-sm-12 mb-1 p-0">
+	<div class="input-group-prepend ">
+		<span class="input-group-text" id="basic-addon2">
+			<i class="fas fa-phone-volume"></i>
+		</span>
+	</div>
+	<input type="text" class="form-control" name="telephone" placeholder="Teléfono" aria-label="Teléfono" aria-describedby="basic-addon2"
+		[(ngModel)]="selectedRow.telephone" />
+</div>
+
+
+<div class="input-group col-sm-12 mb-1 p-0">
+	<div class="input-group-prepend">
+		<span class="input-group-text" id="basic-addon3">
+			<i class="fas fa-at"></i>
+		</span>
+	</div>
+	<input type="email" class="form-control" name="email" placeholder="Email" aria-label="Email" aria-describedby="basic-addon3"
+		[(ngModel)]="selectedRow.email" />
+</div>
+
+<div class="input-group col-sm-12 mb-1 p-0">
+	<div class="input-group-prepend">
+		<span class="input-group-text" id="basic-addon4">
+			<i class="fas fa-fax"></i>
+		</span>
+	</div>
+	<input type="text" class="form-control" name="fax" placeholder="Fax" aria-label="Fax" aria-describedby="basic-addon4" [(ngModel)]="selectedRow.fax" />
+</div>
+
+
+<div class="col-row mb-0 p-0">
+	<button class="btn btn-danger" (click)="cleanForm()">Cancelar</button>
+	<button class="float-right btn btn-success" (click)="addClientAction()">Aceptar</button>
+</div>
+
+</card-content-custom>
+
+<delimiter></delimiter>
+
+
+<table-custom [table]="myTable" [delegate]="this"></table-custom>
+
+<delimiter></delimiter>

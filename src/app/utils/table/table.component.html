@@ -1,0 +1,47 @@
+<card-content-custom [title]="table.title">
+<div class="table-responsive ">
+	<table class="table custom-table">
+		<thead>
+			<!-- Headers -->
+			<tr>
+				<ng-template ngFor let-cell [ngForOf]="table.headers" let-i="index">
+				<th *ngIf="table.showAllColumns || table.showColum[i]">
+					<input *ngIf="table.showAllColumns" type="checkbox" [checked]="table.showColum[i]" (change)="table.showColum[i] = !table.showColum[i]" />
+					{{cell}}
+				</th>
+				</ng-template>
+			</tr>
+
+			<!-- Filters -->
+			<tr>
+				<ng-template ngFor let-cell [ngForOf]="table.headers" let-i="index">
+				<th *ngIf="table.showAllColumns || table.showColum[i]">
+					<input class="form-control p-0 m-0" type="text" [(ngModel)]="filters[i]" />
+				</th>
+				</ng-template>
+			</tr>
+		</thead>
+		<tbody>
+
+			<!-- Content row -->
+			<ng-template ngFor let-item [ngForOf]="table.data | tablefilter : filters:table.ids" let-i="index">
+			<tr (click)="delegate.selectedRow = item" class="custom-row" [class.selected-row]="delegate.selectedRow == item">
+				<ng-template ngFor let-key [ngForOf]="table.ids" let-j="index">
+				<td *ngIf="table.showAllColumns || table.showColum[j]">
+					<ng-container *ngIf="!dateHelper.isDate(item[key])">{{item[key]}} </ng-container>
+					<ng-container *ngIf="dateHelper.isDate(item[key])">{{item[key] | date: dateHelper.dateFormat}}</ng-container>
+
+				</td>
+				</ng-template>
+			</tr>
+			</ng-template>
+		</tbody>
+	</table>
+</div>
+<h4 class="card-title">Options</h4>
+
+<div class="card-text">
+	Show all columns
+	<input type="checkbox" [checked]="table.showAllColumns" (change)="table.showAllColumns = !table.showAllColumns" />
+</div>
+</card-content-custom>
