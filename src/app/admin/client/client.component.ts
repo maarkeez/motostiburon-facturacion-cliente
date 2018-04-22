@@ -28,6 +28,8 @@ export class ClientComponent implements TableDelegate {
     public addClientAction() {
         console.log( "Añadiendo cliente a la lista" );
         console.log( this._selectedClient );
+        
+        
         this._data.push( this._selectedClient );
         this.cleanForm();
 
