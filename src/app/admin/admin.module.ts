@@ -14,16 +14,19 @@ import { ScheduleComponent } from "../utils/schedule/schedule.component";
 import { TableComponent } from "../utils/table/table.component";
 import { TableFilter} from '../utils/table/table.filter';
 
+
 import { AmazingTimePickerModule } from 'amazing-time-picker';
 
 //Services
 import { DateHelper }  from '../utils/helpers/date-helper';
+import { ClientService } from "../persistence/client.service";
+import { PageFilter } from "../utils/filters/page.filter";
 
 
 @NgModule({
     imports: [CommonModule, HttpModule, FormsModule, AmazingTimePickerModule],
     exports: [AdminComponent, AdminDeliveryComponent,ClientComponent],
-    declarations: [TableFilter, AdminComponent, AdminDeliveryComponent,ClientComponent,DelimiterComponent, CardComponent,CardContentComponent, ScheduleComponent, TableComponent],
-    providers: [DateHelper]
+    declarations: [TableFilter,PageFilter, AdminComponent, AdminDeliveryComponent,ClientComponent,DelimiterComponent, CardComponent,CardContentComponent, ScheduleComponent, TableComponent],
+    providers: [DateHelper,ClientService]
 })
 export class AdminModule { }

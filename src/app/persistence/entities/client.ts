@@ -2,11 +2,11 @@ import { Address } from "./address";
 
 export class Client {
     constructor(
-        public id: string,
+        public cif: string,
         public name: string,
         public telephone: string,
-        public deliveryAddressList?: Address[],
-        public invoiceAddress?: Address,
+        public id?: number,
+        public addresses?: Address[],
         public email?: string,
         public fax?: string
     ) { }

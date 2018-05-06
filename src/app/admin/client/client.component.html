@@ -1,3 +1,10 @@
+<card-content-custom *ngIf="errorMessage" [title]="'Error'">
+	{{errorMessage}}
+</card-content-custom>
+<delimiter></delimiter>
+
+
+
 <card-content-custom [title]="'Cliente'">
 <style>
 .input-group>.input-group-prepend {
@@ -9,13 +16,15 @@
 }
 </style>
 
+
+
 <div class="input-group col-sm-12 mb-1 p-0">
 	<div class="input-group-prepend">
 		<span class="input-group-text" id="basic-addon1">
 			<i class="fas fa-id-card"></i>
 		</span>
 	</div>
-	<input type="text" class="form-control" name="id" placeholder="CIF" aria-label="CIF" aria-describedby="basic-addon1" [(ngModel)]="selectedRow.id" />
+	<input type="text" class="form-control" name="cif" placeholder="CIF" aria-label="CIF" aria-describedby="basic-addon1" [(ngModel)]="selectedRow.cif" />
 </div>
 
 <div class="input-group col-sm-12 mb-1 p-0">
@@ -72,3 +81,10 @@
 <table-custom [table]="myTable" [delegate]="this"></table-custom>
 
 <delimiter></delimiter>
+
+<card-content-custom [title]="'Cliente seleccionado'">
+</card-content-custom>
+<delimiter></delimiter>
+
+
+
